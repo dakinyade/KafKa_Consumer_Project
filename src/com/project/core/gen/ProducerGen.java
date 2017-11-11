@@ -9,6 +9,12 @@ import org.apache.kafka.clients.producer.*;
 public class ProducerGen {
 	
 	
+	public ProducerGen() {
+		super();
+		
+	}
+
+
 	//This class Produces messages per user record
 	public ProducerGen(int key, String[] value, List<String> v) {
 		super();
@@ -39,15 +45,21 @@ public class ProducerGen {
     	for (int i = 0; i<v.size(); i++){
     		
     		 ProducerRecord<Integer, String> record = new ProducerRecord<>(topicName,key,v.get(i));
+    		  producer.send(record, new MyProducerCallback());
     		
-    		
+    		System.out.println("recoreded userID"+ key+ " is "+ v.get(i) );
     	}
     	
     }else{
-    	
-		ProducerRecord<Integer, String> record = new ProducerRecord<>(topicName,key,v.get(0));
+    	   if (v.isEmpty()){
+		ProducerRecord<Integer, String> record = new ProducerRecord<>(topicName,key,v.get(0)); //Records the first
+		  producer.send(record, new MyProducerCallback());
+		System.out.println("recoreded userID"+ key+ " is "+ v.get(0) );
+    	   }
     }
-    producer.send(record, new MyProducerCallback());
+    
+    
+    //producer.send(record, new MyProducerCallback());
     System.out.println("AsynchronousProducer call completed");
     producer.close();
 

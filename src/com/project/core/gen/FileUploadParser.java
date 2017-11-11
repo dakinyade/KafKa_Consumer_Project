@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.kafka.clients.producer.Producer;
+
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
-import java.util.Collections;
-
-public class FileUploadParser {
+public class FileUploadParser{
 
 	public FileUploadParser() {
 
@@ -23,7 +23,7 @@ public class FileUploadParser {
 
 	int counter = 0;
 
-	public String fileUpload(String fileFath, int key) {
+	public String fileUpload(String fileFath) {
 
 		// The name of the file to open.
 		// String fileName = "temp.txt";
@@ -31,7 +31,7 @@ public class FileUploadParser {
 		// This will reference one line at a time
 		String line = null;
 		String[] inLine = null;
-		List<Integer> uniqueID= new ArrayList<>();
+		List<Integer> uniqueID = new ArrayList<>();
 		ArrayList<String[]> records = new ArrayList<String[]>();
 		Multimap<Integer, String[]> multimap = new ArrayListMultimap<Integer, String[]>();
 
@@ -49,23 +49,28 @@ public class FileUploadParser {
 				records.add(inLine);
 				nMap.put(Integer.valueOf(inLine[1]), records);
 				multimap.put(Integer.valueOf(inLine[1]), inLine);
-				
-				//get unique userID in a list
-				if (!uniqueID.contains(Integer.valueOf(inLine[1]))){
-					
-					uniqueID.add(Integer.valueOf(inLine[1]));
+
+				// get unique userID in a list
+				if (!uniqueID.contains(Integer.valueOf(inLine[1]))) {
+
+					uniqueID.add(Integer.valueOf(inLine[1])); // add Unique user ID in a list
 				}
-				
-				counter++;
+
 			}
 
-			for(int k: uniqueID)
-			split_in_string(specificUserRec(k, multimap), k); // generates List of
-															// messages per User
-															// ID.
-
-			// ProducerGen(key, inLine, split_in_string(specificUserRec(3,
-			// multimap));
+			for (int k : uniqueID){
+				split_in_string(specificUserRec(k, multimap), k);// generates
+																	// List of
+																	// messages
+																	// per User
+																	// ID.
+			
+				ProducerGen  pg = new ProducerGen(k, inLine, split_in_string(specificUserRec(k, multimap), k));
+				
+				pg.producerMth();
+			
+			
+			}
 
 			// Always close files.
 			bufferedReader.close();
@@ -158,7 +163,7 @@ public class FileUploadParser {
 
 			}
 			ansl.add(userID);
-			System.out.println("UserID value  " + k + "= "+ userID );
+			//System.out.println("UserID value  " + k + "= " + userID);
 
 		}
 		return ansl;

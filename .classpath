@@ -6,5 +6,7 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/google-collections.jar/google-collections.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/kafka-clients-0.10.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/kafka-clients-0.11.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/slf4j-api-1.7.21.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/slf4j-simple-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

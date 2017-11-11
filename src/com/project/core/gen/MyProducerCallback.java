@@ -8,7 +8,7 @@ public class MyProducerCallback implements Callback {
 
 	       public  void onCompletion(RecordMetadata recordMetadata, Exception e) {
 	        if (e != null)
-	            System.out.println("Producer failed with an exception");
+	            System.out.println("Producer failed with the exception: "+ e.getMessage());
 	                else
 	                        System.out.println("Producer Message Successfully sent");
 	       }
