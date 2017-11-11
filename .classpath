@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/common-collections-multimap-1.0.1-sources.jar/common-collections-multimap-1.0.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/google-collections.jar/google-collections.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/kafka-clients-0.10.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/DNA/Downloads/kafka-clients-0.11.0.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
