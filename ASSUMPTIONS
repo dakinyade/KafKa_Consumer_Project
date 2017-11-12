@@ -1,0 +1,6 @@
+Assumptions:
+--  Assuming the message stream or channel was fetched directly from a Database as against a file this would have been much more enterprising and we wont have to create lots of new objects  and colossal methods just to fetch and arrange data and file buffer which has some impact on the jvm memory.
+- i create lots of new methods and objects 
+
+
+-- Assuming the message event was from a database instead of a static text file, the producer can listen for dynamic event in real time  and also the consumer can consume dynamically.
