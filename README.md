@@ -3,6 +3,7 @@
 INSTRUCTION TO USE THE APPLICATION:
 
 =========================prerequisites and configuration===========================
+
 ++ 	download the Kafka Binaries
 	Extract the binaries into a software/kafka folder. For the current version it's software/kafka_2.11-0.9.0.0.
 
